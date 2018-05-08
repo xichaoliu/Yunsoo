@@ -1,0 +1,257 @@
+[
+    {
+        "workFlow": {
+            "relateName": "审批流程", /*相关信息*/
+            "relateTitleList": [
+                {
+                    "ApprovePeople": "张昕", /*审批人*/
+                    "ApproveDate": "2018-01-29 15:10", /*审批时间*/
+                    "fieldList": [
+                        {
+                            "name": "FlowDID", /*数据库对应字段名*/
+                            "display": "工作流编号", /*字段对应中文名*/
+                            "value": "CG001", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ID", /*数据库对应字段名*/
+                            "display": "项目ID", /*字段对应中文名*/
+                            "value": "0009b1c753df45ad8bc2d87063760caa", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "RoleName", /*数据库对应字段名*/
+                            "display": "角色", /*字段对应中文名*/
+                            "value": "财务审批", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ApproveName", /*数据库对应字段名*/
+                            "display": "审批人", /*字段对应中文名*/
+                            "value": "张昕", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateDate", /*数据库对应字段名*/
+                            "display": "审批时间", /*字段对应中文名*/
+                            "value": "2018-01-29 15:10", /*字段值*/
+                            "dataType": "datetime", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateContent", /*数据库对应字段名*/
+                            "display": "审批内容", /*字段对应中文名*/
+                            "value": "委托他人处理", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "State", /*数据库对应字段名*/
+                            "display": "审批状态", /*字段对应中文名*/
+                            "value": "10", /*字段值*/
+                            "dataType": "int", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        }
+                    ]
+                },
+                {
+                    "ApprovePeople": "张昕", /*审批人*/
+                    "ApproveDate": "2018-01-29 15:10", /*审批时间*/
+                    "fieldList": [
+                        {
+                            "name": "FlowDID", /*数据库对应字段名*/
+                            "display": "工作流编号", /*字段对应中文名*/
+                            "value": "CG001", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ID", /*数据库对应字段名*/
+                            "display": "项目ID", /*字段对应中文名*/
+                            "value": "0009b1c753df45ad8bc2d87063760caa", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "RoleName", /*数据库对应字段名*/
+                            "display": "角色", /*字段对应中文名*/
+                            "value": "财务审批", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ApproveName", /*数据库对应字段名*/
+                            "display": "审批人", /*字段对应中文名*/
+                            "value": "张昕", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateDate", /*数据库对应字段名*/
+                            "display": "审批时间", /*字段对应中文名*/
+                            "value": "2018-01-29 15:10", /*字段值*/
+                            "dataType": "datetime", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateContent", /*数据库对应字段名*/
+                            "display": "审批内容", /*字段对应中文名*/
+                            "value": "委托他人处理", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "State", /*数据库对应字段名*/
+                            "display": "审批状态", /*字段对应中文名*/
+                            "value": "10", /*字段值*/
+                            "dataType": "int", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        }
+                    ]
+                },
+                {
+                    "ApprovePeople": "张昕", /*审批人*/
+                    "ApproveDate": "2018-01-29 15:10", /*审批时间*/
+                    "fieldList": [
+                        {
+                            "name": "FlowDID", /*数据库对应字段名*/
+                            "display": "工作流编号", /*字段对应中文名*/
+                            "value": "CG001", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ID", /*数据库对应字段名*/
+                            "display": "项目ID", /*字段对应中文名*/
+                            "value": "0009b1c753df45ad8bc2d87063760caa", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "RoleName", /*数据库对应字段名*/
+                            "display": "角色", /*字段对应中文名*/
+                            "value": "财务审批", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ApproveName", /*数据库对应字段名*/
+                            "display": "审批人", /*字段对应中文名*/
+                            "value": "张昕", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateDate", /*数据库对应字段名*/
+                            "display": "审批时间", /*字段对应中文名*/
+                            "value": "2018-01-29 15:10", /*字段值*/
+                            "dataType": "datetime", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateContent", /*数据库对应字段名*/
+                            "display": "审批内容", /*字段对应中文名*/
+                            "value": "委托他人处理", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "State", /*数据库对应字段名*/
+                            "display": "审批状态", /*字段对应中文名*/
+                            "value": "10", /*字段值*/
+                            "dataType": "int", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        }
+                    ]
+                },
+                {
+                    "ApprovePeople": "张昕", /*审批人*/
+                    "ApproveDate": "2018-01-29 15:10", /*审批时间*/
+                    "fieldList": [
+                        {
+                            "name": "FlowDID", /*数据库对应字段名*/
+                            "display": "工作流编号", /*字段对应中文名*/
+                            "value": "CG001", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ID", /*数据库对应字段名*/
+                            "display": "项目ID", /*字段对应中文名*/
+                            "value": "0009b1c753df45ad8bc2d87063760caa", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "RoleName", /*数据库对应字段名*/
+                            "display": "角色", /*字段对应中文名*/
+                            "value": "财务审批", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "ApproveName", /*数据库对应字段名*/
+                            "display": "审批人", /*字段对应中文名*/
+                            "value": "张昕", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateDate", /*数据库对应字段名*/
+                            "display": "审批时间", /*字段对应中文名*/
+                            "value": "2018-01-29 15:10", /*字段值*/
+                            "dataType": "datetime", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "StateContent", /*数据库对应字段名*/
+                            "display": "审批内容", /*字段对应中文名*/
+                            "value": "委托他人处理", /*字段值*/
+                            "dataType": "string", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        },
+                        {
+                            "name": "State", /*数据库对应字段名*/
+                            "display": "审批状态", /*字段对应中文名*/
+                            "value": "10", /*字段值*/
+                            "dataType": "int", /*数据类型*/
+                            "isShowInEdit": "True", /*是否可编辑*/
+                            "IsHide": "False" /*是否隐藏*/
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+]

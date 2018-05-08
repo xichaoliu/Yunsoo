@@ -1,0 +1,38 @@
+[
+    {
+        "workFlow": {
+            "ApprovePeople": "张昕", /*审批人*/
+            "ApproveDate": "2018-01-29 15:10", /*审批时间*/
+            "fieldList": [
+                {
+                    "name": "FlowDID", /*数据库对应字段名*/
+                    "value": "CG001" /*字段值*/
+                },
+                {
+                    "name": "ID", /*数据库对应字段名*/
+                    "value": "0009b1c753df45ad8bc2d87063760caa" /*字段值*/
+                },
+                {
+                    "name": "RoleName", /*数据库对应字段名*/
+                    "value": "财务审批" /*字段值*/
+                },
+                {
+                    "name": "ApproveName", /*数据库对应字段名*/
+                    "value": "张昕" /*字段值*/
+                },
+                {
+                    "name": "State", /*数据库对应字段名*/
+                    "value": "10" /*字段值*/
+                },
+                {
+                    "name": "StateDate", /*数据库对应字段名*/
+                    "value": "2018-01-29 15:10" /*字段值*/
+                },
+                {
+                    "name": "StateContent", /*数据库对应字段名*/
+                    "value": "委托他人处理" /*字段值*/
+                }
+            ]
+        }
+    }
+]

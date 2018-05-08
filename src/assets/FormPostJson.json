@@ -1,0 +1,191 @@
+[
+    {
+        "tableName": "ERP_Customer", /*提交的主表名*/
+        "submitDate": "2018-04-26", /*提交时间*/
+        "contents": [
+            {
+                "name": "CustomerName", /*数据库对应字段名*/
+                "value": "BESTSELLER-JACK&JONES" /*数据值*/
+            },
+            {
+                "name": "CompanyName", /*数据库对应字段名*/
+                "value": "香港日丰" /*数据值*/
+            },
+            {
+                "name": "ContractNo", /*数据库对应字段名*/
+                "value": "20180000010012301H" /*数据值*/
+            },
+            {
+                "name": "StyleNo", /*数据库对应字段名*/
+                "value": "JCORACER PU JACKET" /*数据值*/
+            },
+            {
+                "name": "StyleName", /*数据库对应字段名*/
+                "value": "PU男上衣" /*数据值*/
+            },
+            {
+                "name": "OrderNum", /*数据库对应字段名*/
+                "value": 8652.00 /*数据值*/
+            },
+            {
+                "name": "QuoteDate", /*数据库对应字段名*/
+                "value": "2018-04-25" /*数据值*/
+            },
+            {
+                "name": "OrderNo", /*数据库对应字段名*/
+                "value": "201802301H" /*数据值*/
+
+            },
+            {
+                "name": "CurrencyStyle", /*数据库对应字段名*/
+                "value": "美元" /*数据值*/
+            },
+            {
+                "name": "QuotePer", /*数据库对应字段名*/
+                "value": 13.4000 /*数据值*/
+            },
+            {
+                "name": "QuoteCurrencyStyle", /*数据库对应字段名*/
+                "value": "美元" /*数据值*/
+            },
+            {
+                "name": "Rate", /*数据库对应字段名*/
+                "value": 6.2500 /*数据值*/
+            },
+            {
+                "name": "RMBAll", /*数据库对应字段名*/
+                "value": 130134.26 /*数据值*/
+            }
+
+        ],
+        "details": [
+            {
+                "relateTableName": "ERP_Material", /*相关信息*/
+                "relateList": [
+                    {
+                        "fieldList": [
+                            {
+                                "name": "MaterialNo", /*数据库对应字段名*/
+                                "value": "P107-162A"
+                            },
+                            {
+                                "name": "Supplier", /*数据库对应字段名*/
+                                "value": "海宁市荣力达纺织有限公司" /*字段值*/
+                            },
+                            {
+                                "name": "Category", /*数据库对应字段名*/
+                                "value": "PU皮革" /*字段值*/
+                            },
+                            {
+                                "name": "Component", /*数据库对应字段名*/
+                                "value": "底部成分：88%涤纶，12%黏胶" /*字段值*/
+                            },
+                            {
+                                "name": "Unit", /*数据库对应字段名*/
+                                "value": "米" /*字段值*/
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "relateTableName": "ERP_Accessories", /*相关信息*/
+                "relateList": [
+                    {
+                        "fieldList": [
+                            {
+                                "name": "SupplementaryMaterialNo", /*数据库对应字段名*/
+                                "value": "210T加密" /*字段值*/
+                            },
+                            {
+                                "name": "Category", /*数据库对应字段名*/
+                                "value": "里料" /*字段值*/
+                            },
+                            {
+                                "name": "Supplier", /*数据库对应字段名*/
+                                "value": "大连百济贸易有限责任公司" /*字段值*/
+
+                            },
+                            {
+                                "name": "Standard", /*数据库对应字段名*/
+                                "value": "63*66D/121*94" /*字段值*/
+                            },
+                            {
+                                "name": "MNum", /*数据库对应字段名*/
+                                "value": 1.24 /*字段值*/
+                            },
+                            {
+                                "name": "Unit", /*数据库对应字段名*/
+                                "value": "" /*字段值*/
+                            }
+                        ]
+                    },
+                    {
+                        "fieldList": [
+                            {
+                                "name": "SupplementaryMaterialNo", /*数据库对应字段名*/
+                                "value": "5# gun metal 金属开尾拉链" /*字段值*/
+                            },
+                            {
+                                "name": "Category", /*数据库对应字段名*/
+                                "value": "拉紧件" /*字段值*/
+                            },
+                            {
+                                "name": "Supplier", /*数据库对应字段名*/
+                                "value": "浙江伟星实业发展股份有限公司大连分公司" /*字段值*/
+                            },
+                            {
+                                "name": "Standard", /*数据库对应字段名*/
+                                "value": "5#" /*字段值*/
+                            },
+                            {
+                                "name": "MNum", /*数据库对应字段名*/
+                                "value": 1.03 /*字段值*/
+                            },
+                            {
+                                "name": "Unit", /*数据库对应字段名*/
+                                "value": "条" /*字段值*/
+                            }
+                        ]
+                    },
+                    {
+                        "fieldList": [
+                            {
+                                "name": "SupplementaryMaterialNo", /*数据库对应字段名*/
+                                "value": "商标-5" /*字段值*/
+                            },
+                            {
+                                "name": "Category", /*数据库对应字段名*/
+                                "value": "标识" /*字段值*/
+                            },
+                            {
+                                "name": "Supplier", /*数据库对应字段名*/
+                                "value": "丹标贸易(东莞）有限公司" /*字段值*/
+                            },
+                            {
+                                "name": "Standard", /*数据库对应字段名*/
+                                "value": "" /*字段值*/
+                            },
+                            {
+                                "name": "MNum", /*数据库对应字段名*/
+                                "value": 1.03 /*字段值*/
+                            },
+                            {
+                                "name": "Unit", /*数据库对应字段名*/
+                                "value": "套" /*字段值*/
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "relateTableName": "ERP_Embroidery", /*相关信息*/
+                "relateList": [ ]
+            },
+            {
+                "relateTableName": "ERP_Others", /*相关信息*/
+                "relateList": [ ]
+            }
+        ]
+    }
+]
