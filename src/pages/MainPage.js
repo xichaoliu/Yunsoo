@@ -11,15 +11,13 @@ import Scan from "../components/Scan";
 import ApprDetail from "../components/ApprDetail/ApprDetail"
 import ApprAdvice from "../components/ApprDetail/ApprAdvice"
 import Undo from "../components/Undo";
+import Done from "../components/Done"
 import Notice from "../components/msg/Notice"
 import Announce from "../components/msg/Announce"
 import ImageShow from '../components/imageShow'
 import MsgDetail from '../components/ApprDetail/MsgDetail'
-import JPushModule from "jpush-react-native/index";
 import Icon from 'react-native-vector-icons/Ionicons';
 import LoginPage from './LoginPage'
-// import Icon from 'react-native-vector-icons/MaterialIcons';
-
 export default class MainPage extends Component {
     constructor(props){
         super(props);
@@ -40,15 +38,15 @@ const Com=TabNavigator({
         screen: Undo,
         navigationOptions: {  // 也可以写在组件的static navigationOptions内
             tabBarLabel:(aa)=>{
-                return '待审批(0)'
+                return '待审批'
             },
             title:'审批',
         }
     },
     Notice: {
-        screen: Notice,
+        screen: Done,
         navigationOptions: {
-            tabBarLabel:'已审批(1)',
+            tabBarLabel:'已审批',
             title:'审批',
         }
     }

@@ -19,7 +19,7 @@ export default class LoginPage extends Component{
         super(props);
         this.props=props;
         this.state={
-            logIn:false
+            logIn:true
         };
         this.logIn=this.logIn.bind(this);
     }
@@ -28,10 +28,7 @@ export default class LoginPage extends Component{
             this.logIn();
         }
         // android 监听后退事件
-        BackHandler.addEventListener('hardwareBackPress', function () {
-            BackHandler.exitApp();
-            return true;
-        });
+        // BackHandler.addEventListener('hardwareBackPress', this.exitYun);
     }
     render(){
         return <View style={styles.container}>
@@ -85,6 +82,13 @@ export default class LoginPage extends Component{
             </View>
         </View>
     }
+    componentWillUnmount(){
+        // BackHandler.removeEventListener('hardwareBackPress' ,this.exitYun);// 移除事件监听
+    }
+    exitYun=()=>{
+        BackHandler.exitApp();
+        return true;
+    };
     logIn(){
         const resetAction = NavigationActions.reset({
             index: 0,

@@ -13,9 +13,7 @@ import {
     View,
     PermissionsAndroid
 } from 'react-native'
-import Contacts from 'react-native-contacts'
 export default class Contact extends Component {
-    // _keyExtractor = (item, index) => item.familyName;
     constructor(props){
         // console.log('1111');
         super(props);
@@ -24,13 +22,9 @@ export default class Contact extends Component {
             permisson:PermissionsAndroid.PERMISSIONS.READ_CONTACTS
         }
     }
-    componentWillMount(){
-
-    }
+    componentWillMount(){}
 
     render(){
-        // let date=new Date().getTime();
-        // let num=Math.floor(Math.random()*1000+1000);
         return (
             <ScrollView>
                 <FlatList

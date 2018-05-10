@@ -5,34 +5,31 @@
 import React, {Component} from 'react';
 import {ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native'
 
-export default class Undo extends Component{
+export default class Done extends Component{
     constructor(props){
         super(props);
         this.state={
-            title:'代办',
-            undoList:[]
-        };
+            doneList:[]
+        }
     }
     componentWillMount(){
-        this.getData();
+        this.getDoneList();
     }
     render(){
-        // console.log('Me的页面');
-        const { navigate } = this.props.navigation;
         return (
-           <ScrollView style={styles.container} contentContainerStyle={{alignItems:'center'}}>
-               {
-                   this.state.undoList.map((value,index)=>{
-                       return  <UndoItem navigate={navigate} item={value} key={index}/>
+            <ScrollView style={styles.container} contentContainerStyle={{alignItems:'center'}}>
+                {
+                    this.state.doneList.map((value,index)=>{
+                        return  <DoneItem item={value} key={index}/>
 
-                   })
-               }
-           </ScrollView>
+                    })
+                }
+            </ScrollView>
         )
     }
-    //获取审批数据
-    getData(){
-        fetch('http://192.168.31.155:8080/bdc/api?apiname=bdc.wf.GetWaitTasks&userid=erisa.qu&pageNum=1&pageCount=20', {
+    //获取已审批列表
+    getDoneList(){
+        fetch('http://192.168.31.155:8080/bdc/api?apiname=bdc.wf.GetHandedTasks&userid=erisa.qu&pageNum=1&pageCount=20', {
             method: 'GET'
         })
             .then((res)=>{
@@ -40,30 +37,24 @@ export default class Undo extends Component{
                 return res.json();
             })
             .then((res)=>{
-                // console.log(res.Data);
+                console.log('已审批',res)
                 if(res.Data.data){
                     this.setState({
-                        undoList:res.Data.data
+                        doneList:res.Data.data
                     });
                 }
             })
     }
 }
-class UndoItem extends Component{
+class DoneItem extends Component{
     constructor(props){
         super(props);
         this.state={
-            value:this.props.item,
-            workflow:this.props.item.WorkFlow_FlowInstance
+            value:this.props.item
         }
     }
     render(){
-        return  <TouchableHighlight
-            underlayColor="white"
-            onPress={() =>
-             this.props.navigate('SDetail', { TkeyValue: this.state.workflow.TkeyValue,FormListTmpl:this.state.workflow.FormListTmpl })}
-        >
-            <View style={styles.content_item}>
+        return <View style={styles.content_item}>
                 <Text style={{color:'black',width:'100%',fontSize:14}}>请求标题：<Text>{this.state.value.Title}</Text></Text>
                 <Text style={styles.item_text}>发起人：<Text style={{color:'black'}}>{this.state.value.CreatedBy}</Text></Text>
                 <Text style={styles.item_text}>接受日期：<Text style={{color:'black'}}>{this.state.value.Modified}</Text></Text>
@@ -75,36 +66,27 @@ class UndoItem extends Component{
                         {/*style={styles.button_refuse}>*/}
                         {/*<Text style={styles.refuse_text}>拒绝</Text>*/}
                         {/*</TouchableOpacity>*/}
-                        <TouchableOpacity
-                            style={styles.button_agree}
-                            activeOpacity={.8}
-                            onPress={() =>
-                                navigate('SDetail', { name: 'Jane' })}
-                        >
-                            <Text style={styles.refuse_agree}>审核</Text>
-                        </TouchableOpacity>
                     </View>
                 </View>
             </View>
-        </TouchableHighlight>
     }
 }
 const styles=StyleSheet.create({
-   container:{
-       width:'100%',
-       height:'100%',
-       backgroundColor:'#ddd',
-       flexDirection:'column',
-       // alignItems:'center'
-   },
-   content_item:{
-       width: 340,
-       height:200,
-       backgroundColor:'white',
-       marginTop:10,
-       marginBottom:10,
-       padding:15
-   },
+    container:{
+        width:'100%',
+        height:'100%',
+        backgroundColor:'#ddd',
+        flexDirection:'column',
+        // alignItems:'center'
+    },
+    content_item:{
+        width: 340,
+        height:200,
+        backgroundColor:'white',
+        marginTop:10,
+        marginBottom:10,
+        padding:15
+    },
     item_text:{
         color:'#666',
         width:'100%',
@@ -112,7 +94,7 @@ const styles=StyleSheet.create({
         marginTop:10
     },
     button_refuse:{
-       width:50,
+        width:50,
         height:30,
         borderWidth:1,
         borderColor:'#1E90FF',

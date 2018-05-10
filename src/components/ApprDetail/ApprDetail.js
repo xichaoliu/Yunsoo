@@ -18,16 +18,18 @@ export default class ApprDetail extends Component {
         super(props);
         this.props=props;
         this.state={
-            MasterTable:'',
-            AttachedTable:''
+            MasterTable:[],
+            AttachedTable:FormJson[0].details,
+            WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
         }
     }
     componentWillMount(){
-        this.setState({
-            MasterTable:FormJson[0].contents,
-            AttachedTable:FormJson[0].details,
-            WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
-        });
+        this.getData();//   获取审批数据
+        // this.setState({
+        //     MasterTable:FormJson[0].contents,
+        //     AttachedTable:FormJson[0].details,
+        //     WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
+        // });
         FormJson[0].contents.map((item,index)=>{
             item.groupContent.map((gItem,index)=>{
                 const cItem={
@@ -63,9 +65,9 @@ export default class ApprDetail extends Component {
                         {
                             this.state.MasterTable.map((item,index)=>{
                                 return  <ApprList
-                                        title={item.groupName}
+                                        title={item.title}
                                         key={index}
-                                        itemList={item.groupContent}
+                                        itemList={item.fields}
                                         id={1}
                                         onChangeData={_this.changePostData}
                                 />
@@ -119,7 +121,32 @@ export default class ApprDetail extends Component {
             }
         });
         DeviceStorage.update('primTable',CONTENTS)
-    }
+    };
+getData(){
+    const _this=this;
+    const {params}=this.props.navigation.state;
+    fetch(`http://192.168.31.155:8080/bdc/api?apiname=bdc.q.u&userid=erisa.qu&kid=${params.TkeyValue}&xml=${params.FormListTmpl}`, {
+        method: 'GET'
+    })
+        .then((res)=>{
+            return res.json();
+        })
+        .then((res)=>{
+            console.log('审批详情',res.Data);
+
+            if(res.Data.pages){
+                res.Data.pages.map((item,index)=>{
+                    if(item.name==="update"){
+                        console.log(item.Entities);
+                        _this.setState({
+                            MasterTable: item.Entities
+                        })
+                    }
+                })
+
+            }
+        })
+}
 }
 //工作流
 class WorkFlow extends Component{

@@ -36,9 +36,9 @@ export default class YunShu extends Component {
         JPushModule.addReceiveNotificationListener((event)=>{
             console.log(event);
         });
-        JPushModule.setAlias('alias', success => {
-            console.log(success);
-        });
+        // JPushModule.setAlias('alias', success => {
+        //     console.log(success);
+        // });
     }
     _requestPermission = async () => {
         const _this=this;
@@ -55,7 +55,7 @@ export default class YunShu extends Component {
                 if (err) throw err;
 
                 // contacts returned
-                console.log(contacts);
+                // console.log(contacts);
                 // _this.setState({
                 //     contacts:contacts
                 // })
@@ -71,9 +71,6 @@ export default class YunShu extends Component {
                     return <MainPage navigator={navigator} {...route.args}/>
                 }
                 }
-                onDidFocus={(route)=>{
-                    console.log(route)
-                }}
             />
         );
     }
