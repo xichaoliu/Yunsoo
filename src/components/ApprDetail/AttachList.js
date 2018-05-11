@@ -62,13 +62,14 @@ export default class AttachList extends Component {
             const _this=this;
                 return  <View>
                     {
-                        this.props.itemList.map((item,index)=>{
+                        this.props.itemList[0].Fields.map((item,index)=>{
                             return   <View style={styles.titleItem} key={index}>
                                 <Text style={{width:'20%'}}>{item.display}</Text>
                                 <DisType
                                     changeListItem={_this.props.onChangeItem}
                                     item={item}
                                     indexKey={_this.props.itemKey}
+                                    valueObj={this.props.valueList}
                                 />
                             </View>
                         })
@@ -150,14 +151,19 @@ class DisType extends Component{
         }
     }
     componentWillMount(){
-        if(this.props.item.dataType==='datetime'){
-            this.setState({
-                dateValue:this.props.item.value
-            })
-        }else{
-            this.setState({
-                itemValue:this.props.item.value
-            })
+        for(const obj in this.props.valueObj){
+            if(obj===this.props.item.name){
+                if(this.props.item.dataType==='datetime'){
+                    // noinspection JSUnfilteredForInLoop
+                    this.setState({
+                        dateValue:this.props.valueObj[obj]?this.props.valueObj[obj]:''
+                    })
+                }else{
+                    this.setState({
+                        itemValue:this.props.valueObj[obj]?this.props.valueObj[obj]:''
+                    })
+                }
+            }
         }
     }
     render() {
@@ -182,7 +188,7 @@ class DisType extends Component{
                         underlineColorAndroid="transparent"
                         maxLength={30}
                         editable={false}
-                        defaultValue={this.state.dateValue.toString()}
+                        defaultValue={this.state.dateValue?this.state.dateValue.toString():''}
                     />
                 </TouchableHighlight>
                 <DateTimePicker
@@ -214,7 +220,7 @@ class DisType extends Component{
                 }}
                 maxLength={30}
                 editable={this.props.item.isShowInEdit}
-                value={this.state.itemValue.toString()}
+                value={this.state.itemValue?this.state.itemValue.toString():''}
             />
         }
     };

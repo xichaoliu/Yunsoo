@@ -15,37 +15,38 @@ export default class MsgDetail extends Component{
     constructor(props){
         super(props);
         this.props=props;
+        console.log(this.props);
         const {params}=this.props.navigation.state;//路由参数
         let index=params.id;
         console.log(params);
         this.state={
-            itemList:params.data[index].relateList,
+            itemList:params.data[index].FieldGroups,
             index:params.id,
             data:params.data
         };
         // 拼接辅表数据
-        params.data.map((item,index)=>{
-            let relateItem={
-                relateTableName:item.relateName,
-                relateList:[]
-            };
-            item.relateList.map((rItem,rIndex)=>{
-                let listItem={
-                    fieldList:[]
-                };
-                rItem.fieldList.map((fItem,fIndex)=>{
-                    let item={
-                        name:fItem.name,
-                        value:fItem.value
-                    };
-                    listItem.fieldList.push(item);
-                });
-                relateItem.relateList.push(listItem)
-            });
-            DETAIL.details.push(relateItem);
-        });
-        // console.log('postData',DETAIL);
-        DeviceStorage.update('attTable',DETAIL)
+        // params.data.map((item,index)=>{
+        //     let relateItem={
+        //         relateTableName:item.relateName,
+        //         relateList:[]
+        //     };
+        //     item.relateList.map((rItem,rIndex)=>{
+        //         let listItem={
+        //             fieldList:[]
+        //         };
+        //         rItem.fieldList.map((fItem,fIndex)=>{
+        //             let item={
+        //                 name:fItem.name,
+        //                 value:fItem.value
+        //             };
+        //             listItem.fieldList.push(item);
+        //         });
+        //         relateItem.relateList.push(listItem)
+        //     });
+        //     DETAIL.details.push(relateItem);
+        // });
+        // // console.log('postData',DETAIL);
+        // DeviceStorage.update('attTable',DETAIL)
 
     }
     render(){
@@ -59,8 +60,9 @@ export default class MsgDetail extends Component{
                        this.state.itemList.map((item,index)=>{
                             return <AttachList
                                     onChangeItem={this.changePostData}
-                                    title={`${item.sortNO}     ${item.display}:${item.value}`}
-                                    itemList={item.fieldList}
+                                    title={item.GroupName}
+                                    valueList={this.state.data[this.state.index].instance[0]}
+                                    itemList={ this.state.itemList}
                                     key={index}
                                     itemKey={index}
                             />
@@ -83,15 +85,15 @@ export default class MsgDetail extends Component{
         //     name:name,
         //     value:value
         // }
-        const item=DETAIL.details[this.state.index].relateList[index].fieldList;
-        item.forEach((arrValue,index,array)=>{
-            if(arrValue.name=== name){
-                if(arrValue.value!==value){
-                    array[index].value=value;
-                }
-            }
-        });
-        DeviceStorage.update('attTable',DETAIL)
+        // const item=DETAIL.details[this.state.index].relateList[index].fieldList;
+        // item.forEach((arrValue,index,array)=>{
+        //     if(arrValue.name=== name){
+        //         if(arrValue.value!==value){
+        //             array[index].value=value;
+        //         }
+        //     }
+        // });
+        // DeviceStorage.update('attTable',DETAIL)
 
     }
 }
@@ -124,11 +126,11 @@ class HorizeList extends Component{
                 this.setState({
                     id:index
                 });
-                this.props.onSelect(item.relateList,index)
+                this.props.onSelect(item.FieldGroups,index)
             }
                 }>
                     <View style={[styles.relateName,{borderColor:index===this.state.id?'#f26':'black'}]}>
-                        <Text style={{fontSize:15,color:index===this.state.id?'#f26':'#000'}}>{item.relateName}</Text>
+                        <Text  numberOfLines={1} style={{fontSize:15,color:index===this.state.id?'#f26':'#000'}}>{item.title}</Text>
                     </View>
             </TouchableHighlight>
     }

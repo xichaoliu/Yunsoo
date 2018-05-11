@@ -19,7 +19,7 @@ export default class LoginPage extends Component{
         super(props);
         this.props=props;
         this.state={
-            logIn:true
+            logIn:false
         };
         this.logIn=this.logIn.bind(this);
     }

@@ -55,12 +55,13 @@ export default class ApprList extends Component {
             if(this.props.id){
                 return  <View>
                     {
-                        this.props.itemList.map((item,index)=>{
+                        this.props.itemList[0].Fields.map((item,index)=>{
                          return   <View style={styles.titleItem} key={index}>
                                 <Text style={{width:'20%'}}>{item.display}</Text>
                                  <DisType
                                     item={item}
                                     itemChange={_this.props.onChangeData}
+                                    valueObj={this.props.valueList}
                                  />
                             </View>
                      })
@@ -79,7 +80,7 @@ export default class ApprList extends Component {
                                     key={index}
                                 >
                                     <View style={styles.titleIm} >
-                                        <Text style={{width:'40%'}}>@{item.relateName}@</Text>
+                                        <Text style={{width:'100%'}}>{item.title}</Text>
                                     </View>
                                 </TouchableHighlight>
                         })
@@ -162,15 +163,21 @@ class DisType extends Component{
         }
     }
     componentWillMount(){
-        if(this.props.item.dataType==='datetime'){
-            this.setState({
-                dateValue:this.props.item.value
-            })
-        }else{
-            this.setState({
-                itemValue:this.props.item.value
-            })
+        for(const obj in this.props.valueObj){
+            if(obj===this.props.item.name){
+                if(this.props.item.dataType==='datetime'){
+                    // noinspection JSUnfilteredForInLoop
+                    this.setState({
+                        dateValue:this.props.valueObj[obj]
+                    })
+                }else{
+                    this.setState({
+                        itemValue:this.props.valueObj[obj]
+                    })
+                }
+            }
         }
+
     }
     render() {
         return <View style={{width:'60%'}}>

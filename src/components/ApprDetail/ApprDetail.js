@@ -19,7 +19,7 @@ export default class ApprDetail extends Component {
         this.props=props;
         this.state={
             MasterTable:[],
-            AttachedTable:FormJson[0].details,
+            AttachedTable:[],
             WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
         }
     }
@@ -64,13 +64,24 @@ export default class ApprDetail extends Component {
                         </View>
                         {
                             this.state.MasterTable.map((item,index)=>{
-                                return  <ApprList
+                                if(item.isPrimary){
+                                    return  <ApprList
                                         title={item.title}
                                         key={index}
-                                        itemList={item.fields}
+                                        valueList={item.instance[0]}
+                                        itemList={item.FieldGroups}
                                         id={1}
                                         onChangeData={_this.changePostData}
-                                />
+                                    />
+                                }else{
+                                    if(item.instance.length>0){
+                                        this.state.AttachedTable.push(item);
+                                        // this.setState({
+                                        //     AttachedTable: this.state.AttachedTable
+                                        // })
+                                    }
+                                }
+
                             })
                         }
                         <ApprList
@@ -125,6 +136,7 @@ export default class ApprDetail extends Component {
 getData(){
     const _this=this;
     const {params}=this.props.navigation.state;
+    console.log('参数',params);
     fetch(`http://192.168.31.155:8080/bdc/api?apiname=bdc.q.u&userid=erisa.qu&kid=${params.TkeyValue}&xml=${params.FormListTmpl}`, {
         method: 'GET'
     })
@@ -133,20 +145,11 @@ getData(){
         })
         .then((res)=>{
             console.log('审批详情',res.Data);
-
-            if(res.Data.pages){
-                res.Data.pages.map((item,index)=>{
-                    if(item.name==="update"){
-                        console.log(item.Entities);
-                        _this.setState({
-                            MasterTable: item.Entities
-                        })
-                    }
-                })
-
-            }
+            _this.setState({
+                MasterTable: res.Data.page.Entities
+            })
         })
-}
+    }
 }
 //工作流
 class WorkFlow extends Component{
