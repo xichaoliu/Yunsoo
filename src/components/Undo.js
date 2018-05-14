@@ -61,7 +61,11 @@ class UndoItem extends Component{
         return  <TouchableHighlight
             underlayColor="white"
             onPress={() =>
-             this.props.navigate('SDetail', { TkeyValue: this.state.workflow.TkeyValue,FormListTmpl:this.state.workflow.FormListTmpl })}
+             this.props.navigate('SDetail', {
+                 TkeyValue: this.state.workflow.TkeyValue,
+                 FormListTmpl:this.state.workflow.FormListTmpl,
+                 flowInstanceId:this.state.workflow.ID
+             })}
         >
             <View style={styles.content_item}>
                 <Text style={{color:'black',width:'100%',fontSize:14}}>请求标题：<Text>{this.state.value.TkeyValue}</Text></Text>

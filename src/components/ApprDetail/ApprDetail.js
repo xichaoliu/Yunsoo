@@ -20,26 +20,27 @@ export default class ApprDetail extends Component {
         this.state={
             MasterTable:[],
             AttachedTable:[],
-            WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
+            WorkFlow:[]
         }
     }
     componentWillMount(){
         this.getData();//   获取审批数据
+        this.getHistoryData();
         // this.setState({
         //     MasterTable:FormJson[0].contents,
         //     AttachedTable:FormJson[0].details,
         //     WorkFlow:WorkFlowJson[0].workFlow.relateTitleList
         // });
-        FormJson[0].contents.map((item,index)=>{
-            item.groupContent.map((gItem,index)=>{
-                const cItem={
-                    name:gItem.name,
-                    value:gItem.value
-                };
-                CONTENTS.contents.push(cItem)
-            })
-        });
-        DeviceStorage.save('primTable',CONTENTS)
+        // FormJson[0].contents.map((item,index)=>{
+        //     item.groupContent.map((gItem,index)=>{
+        //         const cItem={
+        //             name:gItem.name,
+        //             value:gItem.value
+        //         };
+        //         CONTENTS.contents.push(cItem)
+        //     })
+        // });
+        // DeviceStorage.save('primTable',CONTENTS)
 
     }
     render(){
@@ -149,6 +150,20 @@ getData(){
             })
         })
     }
+getHistoryData(){
+    const {params}=this.props.navigation.state;
+    fetch(`http://192.168.31.155:8080/bdc/api?apiname=bdc.wf.GetApprovalRecords&userid=erisa.qu&flowInstanceId=${params.flowInstanceId}`)
+        .then((res)=>{
+            return res.json()
+        })
+        .then((res)=>{
+            if(res.Data){
+                this.setState({
+                    WorkFlow:res.Data                })
+            }
+            console.log('审批记录',res)
+        })
+}
 }
 //工作流
 class WorkFlow extends Component{
@@ -159,7 +174,7 @@ class WorkFlow extends Component{
     render(){
         return <View style={{width:'100%',paddingLeft:10,paddingTop:20,position:'relative'}}>
             <View style={{marginLeft:80}}>
-                <Text>{this.props.checkData.ApprovePeople}</Text>
+                <Text>{this.props.checkData.RealName}</Text>
             </View>
             <View style={{width:'100%',flexDirection:'row'}}>
                 <Image
@@ -168,22 +183,32 @@ class WorkFlow extends Component{
                 />
                 <View style={styles.apprflow}>
                     <View style={{width:'100%',flexDirection:'row',justifyContent:'space-between',marginBottom:5}}>
-                        <Text style={{color:'black',fontSize:16}}>{this.props.checkData.ApprovePeople}</Text>
-                        <Text>{this.props.checkData.ApproveDate}</Text>
+                        <Text style={{color:'black',fontSize:16}}>{this.props.checkData.RealName}</Text>
+                        <Text>{this.props.checkData.Created}</Text>
                     </View>
-                    {this.props.checkData.fieldList.map((item,index)=>{
-                        switch(item.name){
-                            case 'StateContent':
-                            case 'State':
-                                return    <Text
-                                    numberOfLines={1}
-                                    key={index}
-                                >
-                                    {item.display}:{item.value}
-                                </Text>;
-                            default:break;
-                        }
-                    })}
+                    <Text
+                        numberOfLines={1}
+                    >
+                       审批内容:{this.props.checkData.Description}
+                    </Text>
+                    <Text
+                        numberOfLines={1}
+                    >
+                        审批状态:{this.props.checkData.Result}
+                    </Text>
+                    {/*{this.props.checkData.fieldList.map((item,index)=>{*/}
+                        {/*switch(item.name){*/}
+                            {/*case 'StateContent':*/}
+                            {/*case 'State':*/}
+                                {/*return    <Text*/}
+                                    {/*numberOfLines={1}*/}
+                                    {/*key={index}*/}
+                                {/*>*/}
+                                    {/*{item.display}:{item.value}*/}
+                                {/*</Text>;*/}
+                            {/*default:break;*/}
+                        {/*}*/}
+                    {/*})}*/}
                 </View>
             </View>
         </View>
