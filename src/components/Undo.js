@@ -40,7 +40,7 @@ export default class Undo extends Component{
                 return res.json();
             })
             .then((res)=>{
-                // console.log(res.Data);
+                console.log('待审批列表',res.Data);
                 if(res.Data.data){
                     this.setState({
                         undoList:res.Data.data
@@ -64,8 +64,8 @@ class UndoItem extends Component{
              this.props.navigate('SDetail', { TkeyValue: this.state.workflow.TkeyValue,FormListTmpl:this.state.workflow.FormListTmpl })}
         >
             <View style={styles.content_item}>
-                <Text style={{color:'black',width:'100%',fontSize:14}}>请求标题：<Text>{this.state.value.Title}</Text></Text>
-                <Text style={styles.item_text}>发起人：<Text style={{color:'black'}}>{this.state.value.CreatedBy}</Text></Text>
+                <Text style={{color:'black',width:'100%',fontSize:14}}>请求标题：<Text>{this.state.value.TkeyValue}</Text></Text>
+                <Text style={styles.item_text}>发起人：<Text style={{color:'black'}}>{this.state.value.RealName}</Text></Text>
                 <Text style={styles.item_text}>接受日期：<Text style={{color:'black'}}>{this.state.value.Modified}</Text></Text>
                 <View style={{flexDirection:'row',justifyContent:'space-between',marginTop:30}}>
                     <Text style={{fontSize:12,color:'#666'}}>{this.state.value.Modified}</Text>

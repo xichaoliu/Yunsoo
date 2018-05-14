@@ -15,7 +15,8 @@ export default class ApprAdvice extends Component {
         super(props);
         this.state={
             avatarSource:[0],
-            addvice:''
+            advice:'',
+            approval:10
         };
     }
     render(){
@@ -56,21 +57,35 @@ export default class ApprAdvice extends Component {
         )
     }
     confirm(){
-        console.log('确认');
-        const _this=this;
-        DeviceStorage.get('primTable').then((value)=>{
-            console.log(value);
-            Object.assign(FORM_POST_JSON,value);
-            DeviceStorage.get('attTable').then((value)=>{
-                Object.assign(FORM_POST_JSON,value);
-                console.log(FORM_POST_JSON);
-                _this.submit(FORM_POST_JSON)
-            })
-        })
+        // console.log('确认');
+        // const _this=this;
+        // DeviceStorage.get('primTable').then((value)=>{
+        //     console.log(value);
+        //     Object.assign(FORM_POST_JSON,value);
+        //     DeviceStorage.get('attTable').then((value)=>{
+        //         Object.assign(FORM_POST_JSON,value);
+        //         console.log(FORM_POST_JSON);
+        //         _this.submit(FORM_POST_JSON)
+        //     })
+        // })
+        this.submit()
     }
     submit=(value)=>{
-        let postData=[value];// 审批流数据
-        // console.log(postData);
+        const {params}=this.props.navigation.state;//路由参数
+        let approval=params.name?10:-10;
+        // let postData=[value];// 审批流数据
+        let url=`http://192.168.31.155:8080/bdc/api?apiname=bdc.wf.updateTaskStatus&userid=erisa.qu&kid=fb6309027dee4e3485d57d04e71e992a&approval=${approval}&remark=${this.state.advice}`;
+        console.log(url);
+        fetch(`http://192.168.31.155:8080/bdc/api?apiname=bdc.wf.updateTaskStatus&userid=erisa.qu&kid=fb6309027dee4e3485d57d04e71e992a&approval=${approval}&remark=${this.state.advice}`, {
+            method: 'GET'
+        })
+            .then((res)=>{
+                console.log(res);
+                return res.json();
+            })
+            .then((res)=>{
+                console.log('提交',res);
+            })
     };
     _imgPicker(){
         let _this=this;
