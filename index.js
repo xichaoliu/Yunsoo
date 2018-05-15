@@ -36,9 +36,7 @@ export default class YunShu extends Component {
         JPushModule.addReceiveNotificationListener((event)=>{
             console.log(event);
         });
-        // JPushModule.setAlias('alias', success => {
-        //     console.log(success);
-        // });
+
     }
     _requestPermission = async () => {
         const _this=this;

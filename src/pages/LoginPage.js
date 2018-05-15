@@ -14,6 +14,7 @@ import {
     BackHandler
 } from "react-native";
 import {NavigationActions} from 'react-navigation'
+import JPushModule from "jpush-react-native/index";
 export default class LoginPage extends Component{
     constructor(props){
         super(props);
@@ -90,6 +91,14 @@ export default class LoginPage extends Component{
         return true;
     };
     logIn(){
+        JPushModule.setTags(['tag1', 'tag2'], success => {
+            console.log(success);
+        });
+        JPushModule.setAlias('alias', success => {
+            console.log(success);
+        },(err)=>{
+            console.log(err)
+        });
         const resetAction = NavigationActions.reset({
             index: 0,
             actions: [
