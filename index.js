@@ -51,7 +51,6 @@ export default class YunShu extends Component {
         if(result==='granted'){
             Contacts.getAll((err,contacts)=>{
                 if (err) throw err;
-
                 // contacts returned
                 // console.log(contacts);
                 // _this.setState({

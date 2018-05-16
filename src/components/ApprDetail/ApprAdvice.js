@@ -11,13 +11,14 @@ import {
     TextInput,
     TouchableHighlight,
     View,
-    Modal
+    Modal, Alert
 } from 'react-native'
 import ImagePicker from 'react-native-image-picker'
 import DeviceStorage from '../../config/LocalStorage'
+import initDate from '../../config/setDate'
 let FORM_POST_JSON={
     "tableName": "ERP_Customer", /*提交的主表名*/
-    "submitDate":setDate(), /*提交时间*/
+    "submitDate":initDate(), /*提交时间*/
 };
 export default class ApprAdvice extends Component {
     constructor(props){
@@ -28,6 +29,7 @@ export default class ApprAdvice extends Component {
             approval:10,
             modalVisible:false
         };
+        console.log(initDate());
     }
     setModalVisible(visible) {
         this.setState({modalVisible: visible});
@@ -74,18 +76,15 @@ export default class ApprAdvice extends Component {
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent}>
                             <Text style={[styles.modalText,{color:'black'}]}>提交成功</Text>
-
                             <TouchableHighlight onPress={() => {
                                 this.setModalVisible(!this.state.modalVisible)
                             }}>
                                 <Text  style={styles.modalText}>确定</Text>
                             </TouchableHighlight>
-
                         </View>
                     </View>
                 </Modal>
             </View>
-
         )
     }
     confirm(){
@@ -100,7 +99,7 @@ export default class ApprAdvice extends Component {
         //         _this.submit(FORM_POST_JSON)
         //     })
         // })
-        this.submit()
+        this.submit();
     }
     submit=(value)=>{
         const {params}=this.props.navigation.state;//路由参数
@@ -116,9 +115,13 @@ export default class ApprAdvice extends Component {
             })
             .then((res)=>{
                 console.log('提交',res);
-                // if(res.Data){
+                if(res.Data){
                     this.setModalVisible(true);
-                // }
+                }else{
+                    Alert.alert('提示', '提交失败',[{text: '确定'}]);
+                }
+                // this.setModalVisible(true);
+
             })
     };
     _imgPicker(){
@@ -172,17 +175,9 @@ export default class ApprAdvice extends Component {
                 placeholder={params.name?"请输入批准理由":"请输入拒绝理由"}
                 style={[styles.inputText,{padding:20}]}
             />
-
     }
 }
-// 格式化日期
-function setDate(){
-    let date=new Date();
-    const year=date.getFullYear();
-    const month=date.getMonth()+1;
-    const day=date.getDate();
-    return (year+'-'+month+'-'+day)
-}
+
 const styles=StyleSheet.create({
     inputText:{
         width:'100%',

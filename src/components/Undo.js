@@ -3,7 +3,7 @@
  */
 'use strict';
 import React, {Component} from 'react';
-import {ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native'
+import {ScrollView, StyleSheet, Text, TouchableHighlight, TouchableOpacity, View,Alert} from 'react-native'
 
 export default class Undo extends Component{
     constructor(props){
@@ -81,7 +81,7 @@ class UndoItem extends Component{
                         {/*</TouchableOpacity>*/}
                         <TouchableOpacity
                             style={styles.button_agree}
-                            activeOpacity={.8}
+                            activeOpacity={0.8}
                             onPress={() =>
                                 navigate('SDetail', { name: 'Jane' })}
                         >
@@ -140,5 +140,5 @@ const styles=StyleSheet.create({
         color:'white',
         textAlign:'center',
         fontSize:16
-    },
+    }
 });
